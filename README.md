@@ -26,5 +26,7 @@
 
 ## Test:
 .Unit test: npm test
+## Run:
+- nodemon
 
-![reverse](basic-express.jpg)
+
