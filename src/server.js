@@ -10,6 +10,7 @@ const notFound = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
 
 const logger = require('./middleware/logger');
+const validator = require('./middleware/validator');
 
 const clothesRoute = require('./routes/clothes');
 const foodRoute = require('./routes/food');
@@ -29,6 +30,10 @@ app.get('/', (req, res) => {
 app.get('/bad', (req, res) => {
 
     throw new Error('There is a wrong');
+})
+app.get('/person', validator, (req, res) => {
+    const output = { name: req.query.name };
+    res.json(output);
 })
 
 app.use('*', notFound);
