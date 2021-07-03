@@ -1,5 +1,9 @@
 'use strict';
-// module.exports=(req,res,next)=>{
-//     console.log('req.params.id');
-//     if()
-// }
+module.exports = (req, res, next) => {
+    if (!req.body.name) {
+        next('invalid req');
+    }
+    else {
+        next();
+    }
+}
